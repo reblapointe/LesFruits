@@ -6,7 +6,7 @@ namespace LesFruits
 {
     public class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] _)
         {
             var fruits = new List<Fruit>()
             {
@@ -41,7 +41,7 @@ namespace LesFruits
         }
         static bool AvecA(Fruit fruit)
         {
-            return fruit.Nom.ToUpper().Contains("A");
+            return fruit.Nom.ToUpper().Contains('A');
         }
     }
 }

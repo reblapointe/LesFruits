@@ -14,8 +14,7 @@ namespace LesFruits
 
         public override bool Equals(object obj)
         {
-            Personne personne = obj as Personne;
-            return personne != null &&
+            return obj is Personne personne &&
                    Nom == personne.Nom &&
                    Age == personne.Age &&
                    Genre == personne.Genre &&
@@ -24,12 +23,7 @@ namespace LesFruits
 
         public override int GetHashCode()
         {
-            var hashCode = -821498492;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nom);
-            hashCode = hashCode * -1521134295 + Age.GetHashCode();
-            hashCode = hashCode * -1521134295 + Genre.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<IList<Fruit>>.Default.GetHashCode(FruitsAimes);
-            return hashCode;
+            return HashCode.Combine(Nom, Age, Genre, FruitsAimes);
         }
 
         public override string ToString()
